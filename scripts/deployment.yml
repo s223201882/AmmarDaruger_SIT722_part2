@@ -1,12 +1,11 @@
 # Write Kubernetes Deployment Script
 
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: book-catalog
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: book-catalog
@@ -17,12 +16,13 @@ spec:
     spec:
       containers:
       - name: book-catalog-container
-        image: s223201882sit722p62.azurecr.io/book-catalog:latest
+        image: book-catalog-container:1
         ports:
         - containerPort: 8000
-        # env:
-        # - name: DATABASE_URL
-        #   value: "postgresql://<db_user>:<db_password>@<db_host>:5432/<db_name>"
+        env:
+        - name: DATABASE_URL
+          value: "postgresql://s223201882part2_user:D92UYiVvfb3dyllTByWWp9pHC1Agy44D@dpg-crou4md6l47c73fitlog-a.oregon-postgres.render.com/s223201882part2"
+
 ---
 apiVersion: v1
 kind: Service
