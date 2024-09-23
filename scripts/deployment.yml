@@ -17,12 +17,12 @@ spec:
     spec:
       containers:
       - name: book-catalog-container
-        image: <your-dockerhub-username>/book-catalog:latest
+        image: s223201882sit722p62.azurecr.io/book-catalog:latest
         ports:
         - containerPort: 8000
-        env:
-        - name: DATABASE_URL
-          value: "postgresql://<db_user>:<db_password>@<db_host>:5432/<db_name>"
+        # env:
+        # - name: DATABASE_URL
+        #   value: "postgresql://<db_user>:<db_password>@<db_host>:5432/<db_name>"
 ---
 apiVersion: v1
 kind: Service
@@ -32,7 +32,6 @@ spec:
   selector:
     app: book-catalog
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8000
-  type: LoadBalancer
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
