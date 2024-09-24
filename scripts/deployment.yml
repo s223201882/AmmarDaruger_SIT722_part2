@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: book-catalog-container
-        image: book-catalog-container:1
+        image: book-catalog:1
         ports:
         - containerPort: 8000
 
