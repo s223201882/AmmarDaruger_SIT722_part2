@@ -29,7 +29,6 @@ spec:
   selector:
     app: book-catalog
   ports:
-    - protocol: TCP
-      port: 8000
-      targetPort: 8000
-      # nodePort: 30006
+      - port: 8000
+        targetPort: 8000
+        nodePort: 30006
